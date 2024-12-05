@@ -4,7 +4,7 @@ Technology: Airflow, Postgres(AWS RDS)<br>
 ### configuration
 Install and turn on Docker Desktop <br>
 Run the following commands in Terminal: <br>
-git clone -b master <http code> <br>
+git clone -b master <link> <br>
 docker compose up <br>
 Visit http://localhost/8080 to work with the Airflow UI <br>
 ### Variable for connection
