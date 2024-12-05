@@ -1,0 +1,34 @@
+[2024-12-05T07:54:52.866+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-05T07:54:52.884+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: weather_pipeline.save_to_postgres manual__2024-12-05T07:54:50.064409+00:00 [queued]>
+[2024-12-05T07:54:52.892+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: weather_pipeline.save_to_postgres manual__2024-12-05T07:54:50.064409+00:00 [queued]>
+[2024-12-05T07:54:52.893+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 6
+[2024-12-05T07:54:52.907+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): save_to_postgres> on 2024-12-05 07:54:50.064409+00:00
+[2024-12-05T07:54:52.917+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=172) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-12-05T07:54:52.919+0000] {standard_task_runner.py:72} INFO - Started process 173 to run task
+[2024-12-05T07:54:52.919+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'weather_pipeline', 'save_to_postgres', 'manual__2024-12-05T07:54:50.064409+00:00', '--job-id', '92', '--raw', '--subdir', 'DAGS_FOLDER/weather_pipeline.py', '--cfg-path', '/tmp/tmptm4uk1re']
+[2024-12-05T07:54:52.920+0000] {standard_task_runner.py:105} INFO - Job 92: Subtask save_to_postgres
+[2024-12-05T07:54:52.972+0000] {task_command.py:467} INFO - Running <TaskInstance: weather_pipeline.save_to_postgres manual__2024-12-05T07:54:50.064409+00:00 [running]> on host 220bb03a2f1f
+[2024-12-05T07:54:53.063+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Dung' AIRFLOW_CTX_DAG_ID='weather_pipeline' AIRFLOW_CTX_TASK_ID='save_to_postgres' AIRFLOW_CTX_EXECUTION_DATE='2024-12-05T07:54:50.064409+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-05T07:54:50.064409+00:00'
+[2024-12-05T07:54:53.065+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-05T07:54:53.068+0000] {connection.py:531} ERROR - Unable to retrieve connection from secrets backend (EnvironmentVariablesBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/connection.py", line 526, in get_connection_from_secrets
+    conn = secrets_backend.get_connection(conn_id=conn_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/secrets/base_secrets.py", line 96, in get_connection
+    value = self.get_conn_value(conn_id=conn_id)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/secrets/environment_variables.py", line 52, in get_conn_value
+    return os.environ.get(CONN_ENV_PREFIX + conn_id.upper())
+                                            ^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'upper'
+[2024-12-05T07:54:53.079+0000] {base.py:84} INFO - Retrieving connection 'weather'
+[2024-12-05T07:54:54.430+0000] {logging_mixin.py:190} INFO - Successful
+[2024-12-05T07:54:54.433+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-12-05T07:54:54.446+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-05T07:54:54.447+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=weather_pipeline, task_id=save_to_***, run_id=manual__2024-12-05T07:54:50.064409+00:00, execution_date=20241205T075450, start_date=20241205T075452, end_date=20241205T075454
+[2024-12-05T07:54:54.477+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-12-05T07:54:54.498+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-05T07:54:54.500+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
